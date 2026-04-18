@@ -1,0 +1,62 @@
+session_config:
+  session_id: dev
+  use_gpu: True
+  aggregator: fedavg
+  aggregator_args: None
+  client_selection: fedavg
+  client_selection_args:
+    client_fraction: 1.0
+  termination_condition: max_rounds
+  termination_condition_args:
+    max_rounds: 10
+  validation_round_interval: 1
+  checkpoint_interval: 1
+  generate_plots: False
+  wait_for_clients:
+    min_clients: 1       
+    max_wait_s: 3600      
+    poll_interval_s: 10  
+
+benchmark_config:
+  skip_benchmark: True
+  model_id: LeNet5
+  model_dir: ../models/LeNet5
+  model_class: LeNet5_class
+  dataset: EMNIST_NONIID3
+  bench_minibatch_count: 500
+  batch_size: 16
+  learning_rate: 0.0001
+  timeout_duration_s: 120
+
+server_training_config:
+  model_dir: ../models/LeNet5
+  global_model_validation_batch_size: 100
+
+client_training_config:
+  model_id: LeNet5
+  model_class: LeNet5_class
+  epochs: 5
+  dataset: EMNIST_NONIID3
+  batch_size: 32
+  learning_rate: 0.0005
+  train_timeout_duration_s: 300
+  loss_function: crossentropy
+  loss_function_custom: True
+  optimizer: adam
+  optimizer_custom: True
+
+model_config:
+  use_custom_client_dataloader: False
+  custom_client_loader_args: None
+  
+  use_custom_server_dataloader: False
+  custom_server_loader_args: None
+
+  use_custom_trainer: False
+  custom_trainer_args: None
+
+  use_custom_validator: False
+  custom_validator_args: None
+
+  model_args:
+    num_classes: 10
