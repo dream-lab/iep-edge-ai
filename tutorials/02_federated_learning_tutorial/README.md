@@ -4,6 +4,14 @@
 **Date:** Wednesday, March 18
 
 
+## Federated Learning Tutorial
+
+- [Flotilla Framework](https://github.com/dream-lab/flotilla)
+
+
+----
+
+
 ## Jetson Demo
 ### Models & Tokenizers
 - [SmolLM2-135M-Instruct](https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct)
